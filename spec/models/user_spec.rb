@@ -26,27 +26,27 @@ describe User do
   it "should return users who ordered 2 or more items in the last 90 days" do
   	@user1 = FactoryGirl.create(:user)
   	@order1 = FactoryGirl.create(:order, 
-  															 :user_id => @user1.id, 
-  															 :created_at => Time.now.midnight - 30.day,
-  															 :items =>  3.times.collect {FactoryGirl.create(:item)})
+                                 :user_id => @user1.id, 
+                                 :created_at => Time.now.midnight - 30.day,
+                                 :items =>  3.times.collect {FactoryGirl.create(:item)})
 
   	@user2 = FactoryGirl.create(:user)
   	@order2 = FactoryGirl.create(:order, 
-  															 :user_id => @user2.id, 
-  															 :created_at => Time.now.midnight - 30.day,
-  															 :items =>  1.times.collect {FactoryGirl.create(:item)})  
+                                 :user_id => @user2.id, 
+                                 :created_at => Time.now.midnight - 30.day,
+                                 :items =>  1.times.collect {FactoryGirl.create(:item)})  
 
   	@user3 = FactoryGirl.create(:user)
   	@order3 = FactoryGirl.create(:order, 
-  															 :user_id => @user3.id, 
-  															 :created_at => Time.now.midnight - 100.day,
-  															 :items =>  3.times.collect {FactoryGirl.create(:item)}) 
+                                 :user_id => @user3.id, 
+                                 :created_at => Time.now.midnight - 100.day,
+                                 :items =>  3.times.collect {FactoryGirl.create(:item)}) 
   	
   	@user4 = FactoryGirl.create(:user)
   	@order4 = FactoryGirl.create(:order, 
-  															 :user_id => @user4.id, 
-  															 :created_at => Time.now.midnight - 100.day,
-  															 :items =>  1.times.collect {FactoryGirl.create(:item)}) 
+                                 :user_id => @user4.id, 
+                                 :created_at => Time.now.midnight - 100.day,
+                                 :items =>  1.times.collect {FactoryGirl.create(:item)}) 
 
   	User.loyality.count.size.should == 1  	
   end
