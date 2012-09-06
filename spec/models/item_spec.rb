@@ -23,7 +23,7 @@ describe Item do
     @item2 = FactoryGirl.create(:item)
     @order2 = FactoryGirl.create(:order, :items => 5.times.collect { @item2 })
 
-    Item.popular.count.size.should == 2
+    Item.popular(10).count.size.should == 2
     Item.all.count.should == 5
   end
 end

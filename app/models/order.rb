@@ -6,8 +6,7 @@ class RequireItemValidator < ActiveModel::Validator
 	end
 end
 
-class Order < ActiveRecord::Base
-	include ActiveModel::Validations
+class Order < ActiveRecord::Base	
   attr_accessible :nom
   belongs_to :user
   has_and_belongs_to_many :items
